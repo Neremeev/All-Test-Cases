@@ -15,4 +15,4 @@
 2) react-google-maps - библиотека для работы с картами
 3) https://www.mocky.io/ бэкенд
 
-![Скриншот](https://github.com/Neremeev/image/raw/master/img/Screenshot_3.png)
+![Скриншот](https://github.com/Neremeev/Source/blob/master/img/Screenshot_3.png)
