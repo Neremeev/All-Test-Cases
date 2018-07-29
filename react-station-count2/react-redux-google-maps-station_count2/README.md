@@ -7,5 +7,5 @@
 npm install
 npm start
 
-![Скриншот](https://github.com/Neremeev/image/raw/master/img/react-redux-google-maps-station2-1.png)
-![Скриншот](https://github.com/Neremeev/image/raw/master/img/react-redux-google-maps-station2-2.png)
+![Скриншот](https://github.com/Neremeev/Source/blob/master/img/react-redux-google-maps-station2-1.png)
+![Скриншот](https://github.com/Neremeev/Source/blob/master/img/react-redux-google-maps-station2-2.png)
