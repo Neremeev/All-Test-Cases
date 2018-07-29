@@ -1,0 +1,328 @@
+
+/*--------------------------------------MIXINS--------------------------------------*/
+
+@mixin icon($bg, $w, $h) {
+    background-image: $bg;
+    width: $w;
+    height: $h;
+    display:inline-block;
+    vertical-align:bottom;
+}
+
+/*--------------------------------------END MIXINS--------------------------------------*/
+
+/*--------------------------------------VARIABLES--------------------------------------*/
+
+$sidebar_margin: 12%;
+$ff_light: MullerLight;
+$ff_medium: MullerMedium;
+
+/*--------------------------------------END VARIABLES--------------------------------------*/
+
+/*--------------------------------------PARENTS--------------------------------------*/
+
+%object {
+    position: relative;
+    padding: 1%;
+    height:60px;
+    width:250px;
+    display: flex;
+    font-size: 10px;
+    font-family: $ff_light;
+    cursor: pointer;
+}
+
+%flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/*--------------------------------------END PARENTS--------------------------------------*/
+
+/*--------------------------------------FONTS--------------------------------------*/
+
+@font-face {
+    font-family: MullerLight;
+    src: url("styles/fonts/Fontfabric - MullerLight.otf") format("opentype");
+}
+
+@font-face {
+    font-family: MullerMedium;
+    src: url("styles/fonts/Fontfabric - MullerMedium.otf") format("opentype");
+}
+
+
+/*--------------------------------------END FONTS--------------------------------------*/
+
+
+/*--------------------------------------STYLES--------------------------------------*/
+
+.main {
+    display: flex;
+    width: 1260px;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.map {
+    width: 900px;
+}
+
+
+/*-------------------------SIDEBAR-------------------------*/
+
+.sidebar {
+    width: 360px;
+    height: 720px;
+    @extend %flex-column;
+}
+
+.logo-sidebar {
+    flex: 0.15;
+}
+
+.links-sidebar {
+    flex:0.4;
+    a {
+        font-family: $ff_light;
+        font-size: 11.5px;
+        text-decoration: none;
+        @extend %flex-column;
+        color: black;
+        margin: {
+            top: 5%;
+            left: 12%;
+        };
+    }
+}
+
+.objects-sidebar {
+    flex:1.3;
+    @extend %flex-column;
+    justify-content: flex-end;
+}
+
+
+.object {
+    @extend %object;
+    &:hover {
+        background-image:url(styles/image/bg2.png);
+        margin-left: -16px;
+    }
+    div {
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column;
+        span {
+            font-family: $ff_light;
+            width: 200px;
+            margin-left: 2.3%;
+            padding: 1px;
+        }
+    }
+}
+
+
+.activeObject {
+    @extend %object;
+    background-image:url(styles/image/bg2.png);
+    margin-left: -16px;
+    div {
+        margin-left: 11%;
+        display: flex;
+        flex-direction: column;
+        span {
+            font-family: $ff_medium;
+            width: 200px;
+            margin-left: -5%;
+            padding: 1px;
+        }
+    }
+}
+
+.adv2-sidebar {
+    flex:0.5;
+    @extend %flex-column;
+    justify-content: flex-end;
+    margin: {
+        left: $sidebar_margin;
+    };
+
+    div {
+        padding: 1%;
+        font-family: $ff_light;
+        font-size: 10px;
+        width: 200px;
+        line-height: 1.4;
+
+        a {
+            text-decoration: none;
+        }
+
+    }
+}
+
+/*-------------------ICONS-------------------*/
+
+.icon-sidebar {
+    flex:0.15;
+    margin: {
+        left: $sidebar_margin;
+    };
+
+    span {
+        margin: {
+            top: 3%;
+            left: 8%;
+        };
+        &:first-child {
+            margin: {
+                top: 3%;
+                left: 0%;
+            };
+        }
+
+    }
+}
+
+.icon-logo {
+    @include icon(url(styles/image/logo.png), 89px, 13px);
+    margin: {
+        top: 5%;
+        left: $sidebar_margin;
+    };
+}
+
+.icon-tw {
+    @include icon(url(styles/image/twitter.png), 20px, 13px);
+}
+
+.icon-fc {
+    @include icon(url(styles/image/facebook.png), 7px, 13px);
+}
+
+.icon-gg {
+    @include icon(url(styles/image/google.png), 9px, 13px);
+}
+
+.icon-vm {
+    @include icon(url(styles/image/vimeo.png), 16px, 13px);
+}
+
+/*-------------------END ICONS-------------------*/
+
+/*-------------------------END SIDEBAR-------------------------*/
+
+/*-------------------------INFO-BOX-------------------------*/
+
+.infobox {
+    width:120px;
+    height:48px;
+    background-image:url(styles/image/bg.png);
+    background-color: black;
+    opacity: 0.6;
+    span {
+        margin: {
+            top: 10%;
+        };
+    }
+}
+
+/*-------------------------END INFO-BOX-------------------------*/
+
+/*-------------------------MEDIA-SCREEN-------------------------*/
+
+
+/*----------------FOR-SMARTPHONES------------------*/
+
+@each $mw in 310px, 370px, 400px  {
+
+    @media (min-width: $mw) and (max-width: 680px) {
+
+        .main {
+            display: block;
+            width: 100%;
+            margin: auto;
+            border: 0;
+        }
+        .map {
+            width: $mw - 20px;
+            border: 1px solid black;
+        }
+        .sidebar {
+            width: $mw - 20px;
+            height: 720px;
+            border: 1px solid black;
+        }
+
+        .object {
+            div {
+                margin-left: 5%;
+                span {
+                    margin-left: 0%;
+                }
+            }
+        }
+
+        .activeObject {
+            background-image:none;
+            margin-left: 0%;
+            div {
+                margin-left: 5%;
+                span {
+                    margin-left: 0%;
+                }
+            }
+        }
+    }
+}
+
+/*----------------END FOR-SMARTPHONES------------------*/
+
+/*----------------FOR-TABLES------------------*/
+
+@each $mw in 700px, 1000px {
+
+    @media (min-width: $mw) and (max-width: 1050px) {
+
+        .main {
+            width: $mw;
+            margin: auto;
+            border: 0;
+        }
+        .map {
+            width: 65%;
+            border: 1px solid black;
+        }
+        .sidebar {
+            width: 35%;
+            height: 720px;
+            border: 1px solid black;
+        }
+
+        .object {
+            div {
+                margin-left: 5%;
+                span {
+                    margin-left: 0%;
+                }
+            }
+        }
+
+        .activeObject {
+            background-image:none;
+            margin-left: 0%;
+            div {
+                margin-left: 5%;
+                span {
+                    margin-left: 0%;
+                }
+            }
+        }
+    }
+}
+/*----------------END FOR-TABLES------------------*/
+
+/*-------------------------END MEDIA-SCREEN-------------------------*/
+
+/*--------------------------------------END STYLES--------------------------------------*/
