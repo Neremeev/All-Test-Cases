@@ -1,0 +1,47 @@
+.map {
+    width: 70%;
+    border: 2px solid black;
+}
+
+.main {
+    display: flex;
+    width: 80%;
+    margin: 2% 5% 2% 5%;
+}
+
+.sidebar {
+    width: 30%;
+}
+
+.addRoute {
+    width: 90%;
+    background-color: deepskyblue;
+    border: 3px dashed black;
+}
+
+.btnAddRoute {
+    margin: 0% 0% 1% 1%;
+    cursor:pointer;
+}
+
+.btnDeleteRoute {
+    cursor:pointer;
+}
+
+.addRouteText {
+    padding: 1%;
+}
+
+.routesContainer {
+    width: 90%;
+    background-color: deepskyblue;
+    border: 3px dashed black;
+    margin-top: 2%;
+}
+
+.routeContainer {
+    width: 90%;
+    background-color: white;
+    border: 1px dashed black;
+    padding: 2%;
+}
